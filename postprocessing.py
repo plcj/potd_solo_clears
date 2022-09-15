@@ -1,26 +1,39 @@
 import json
 
 import config
+import pandas as pd
 from data_model import jobs_by_uid, Jobs
 from support import extract_job_uid_from_url
 
 
-def post():
-    with open(config.spider_output_filepath, 'r') as all_leaderboards:
-        all_leaderboards = json.load(all_leaderboards)
-        for lb in all_leaderboards:
-            job = jobs_by_uid[extract_job_uid_from_url(lb['url'])]
-            for floor in lb['floorsReached']:
-                if '200' in floor:
-                    job.value.clears += 1
+def all_clears_by_job(input_filepath=config.spider_output_filepath):
+    with open(input_filepath, 'r') as all_leaders:
+        all_leaders = json.load(all_leaders)
+        for leader in all_leaders:
+            if '200' in leader['floor']:
+                job = jobs_by_uid[extract_job_uid_from_url(leader['url'])]
+                job.value.clears += 1
 
-        print("Palace of the Dead Clear Count by Job (All NA Data Centers)")
-        print("-----------------------------------------------------------")
-        print()
-        print("Job,Clears")
-        for job in Jobs:
-            print(job.name + "," + str(job.value.clears))
+    clears = list()
+    for job in Jobs:
+        clears.append((job.name, job.value.clears))
+
+    return clears
 
 
-if __name__ == '__main__':
-    post()
+def json_to_csv(input_filepath=config.spider_output_filepath):
+    columns = (
+        'job',
+        'datacenter',
+        'url',
+        'rank',
+        'name',
+        'world',
+        'score',
+        'floor',
+        'utc-time',
+    )
+
+    dfs = list()
+    dfs.append(pd.read_json(input_filepath))
+    pd.concat(dfs).to_csv(input_filepath + '.csv', columns=columns)
