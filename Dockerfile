@@ -1,10 +1,10 @@
 FROM amancevice/pandas:1.4.3-alpine
 
-COPY . /root/psc
+COPY . /root/ddlb
 
-WORKDIR /root/psc/
+WORKDIR /root/ddlb/
 
-RUN pip install pytest==7.1.2
-RUN pip install scrapy==2.6.2
+RUN pip install pytest==7.2.1
+RUN pip install scrapy==2.7.1
 
-ENV PYTHONPATH "${PYTHONPATH}:/psc"
+ENV PYTHONPATH "${PYTHONPATH}:/ddlb"

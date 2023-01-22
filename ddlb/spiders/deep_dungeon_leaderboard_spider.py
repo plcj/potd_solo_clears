@@ -5,7 +5,7 @@ import support
 from data_model import jobs_by_uid
 
 
-class PotdSoloLeaderboardSpider(scrapy.Spider):
+class DeepDungeonLeaderboardSpider(scrapy.Spider):
     name = "leaderboard"
     allowed_domains = ['na.finalfantasyxiv.com']
     start_urls = support.build_urls()

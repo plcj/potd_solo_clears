@@ -7,14 +7,14 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'potd_solo_clears'
+BOT_NAME = 'deep_dungeon_leaderboard'
 
-SPIDER_MODULES = ['potd_solo_clears.spiders']
-NEWSPIDER_MODULE = 'potd_solo_clears.spiders'
+SPIDER_MODULES = ['ddlb.spiders']
+NEWSPIDER_MODULE = 'ddlb.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'potd (+http://www.yourdomain.com)'
+#USER_AGENT = 'ddlb (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -25,7 +25,7 @@ ROBOTSTXT_OBEY = True
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-DOWNLOAD_DELAY = 3
+DOWNLOAD_DELAY = 1
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
@@ -45,13 +45,13 @@ DOWNLOAD_DELAY = 3
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'potd.middlewares.PotdSpiderMiddleware': 543,
+#    'ddlb.middlewares.DdlbSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'potd.middlewares.PotdDownloaderMiddleware': 543,
+#    'ddlb.middlewares.DdlbDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -63,7 +63,7 @@ DOWNLOAD_DELAY = 3
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    'potd.pipelines.PotdPipeline': 300,
+#    'ddlb.pipelines.DdlbPipeline': 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)

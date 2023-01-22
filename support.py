@@ -1,8 +1,9 @@
 from data_model import DataCenters, Jobs
+import config
 
 
 def build_url(job_uid, dc_name):
-    baseurl = 'https://na.finalfantasyxiv.com/lodestone/ranking/deepdungeon/?'
+    baseurl = f'{config.dungeon.value.lb_url}?'
 
     return baseurl + "subtype=" + job_uid + "&solo_party=solo&dcgroup=" + dc_name
 

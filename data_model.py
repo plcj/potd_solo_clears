@@ -64,3 +64,18 @@ class DataCenters(Enum):
     MATERIA = "Materia"
     METEOR = "Meteor"
     PRIMAL = "Primal"
+
+
+lb_base_url = 'https://na.finalfantasyxiv.com/lodestone/ranking/'
+
+
+class DeepDungeon:
+    def __init__(self, name, lb_url):
+        self.name = name
+        self.lb_url = lb_url
+
+
+class DeepDungeons(Enum):
+    POTD = DeepDungeon('potd', f'{lb_base_url}deepdungeon/')
+    HOH = DeepDungeon('hoh', f'{lb_base_url}deepdungeon2/')
+    # EO = DeepDungeon('eo', f'{lb_base_url}deepdungeon3/')
